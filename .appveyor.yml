@@ -8,7 +8,7 @@ environment:
   DOCKERHUB_USERNAME:
     secure: ZU1hmTwXJZBIzzzkLh++5QFE+vVp0CTweQ4TJ8Nw0fc=
   DOCKERHUB_PASSWORD:
-    secure: jixSPUTmNBIZWupRZZwyOoRFd7bIh0hdvRn8z1/bRUE=
+    secure: AG+2JWjLA8d1z4FkC7CrpCjM/2sgStt0wtbgV3n54uv8DK2yJb6rx5In2K7ZOXhl
   matrix:
     - NAME: python_3
       SRC_IMAGE: python:3-windowsservercore-ltsc2016
