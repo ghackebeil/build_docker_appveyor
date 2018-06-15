@@ -1,0 +1,29 @@
+
+version: 1.0.{build}
+image: Visual Studio 2017
+
+
+
+environment:
+  DOCKERHUB_USERNAME:
+    secure: ZU1hmTwXJZBIzzzkLh++5QFE+vVp0CTweQ4TJ8Nw0fc=
+  DOCKERHUB_PASSWORD:
+    secure: B5csT/8cBVzPVNt2pCrv6QHpqPVI5pGbJdSQWdv+lYDWy9aqpp3zndCUiNT1jkHw
+  matrix:
+    - NAME: python_3
+      SRC_IMAGE: python:3-windowsservercore-ltsc2016
+      SRC_PYTHON_EXE: python
+    - NAME: python_2
+      SRC_IMAGE: python:2-windowsservercore-ltsc2016
+      SRC_PYTHON_EXE: python
+
+install:
+  - docker version
+  - docker login -u="$env:DOCKERHUB_USERNAME" -p="$env:DOCKERHUB_PASSWORD"
+
+build_script:
+  - docker pull "$env:SRC_IMAGE"
+  - docker run "$env:SRC_IMAGE" "$env:SRC_PYTHON_EXE" --version
+
+#deploy_script:
+#  - docker push me/myfavoriteapp
