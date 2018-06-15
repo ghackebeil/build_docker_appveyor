@@ -21,8 +21,8 @@ install:
   - docker version
 
 build_script:
-  - docker pull "$env:SRC_IMAGE"
-  - docker run "$env:SRC_IMAGE" "$env:SRC_PYTHON_EXE" --version
+  - docker pull "%SRC_IMAGE%"
+  - docker run "%SRC_IMAGE%" "%SRC_PYTHON_EXE%" --version
   - docker login -u="$env:DOCKERHUB_USERNAME" -p="$env:DOCKERHUB_PASSWORD"
 
 #deploy_script:
