@@ -8,7 +8,7 @@ environment:
   DOCKERHUB_USERNAME:
     secure: ZU1hmTwXJZBIzzzkLh++5QFE+vVp0CTweQ4TJ8Nw0fc=
   DOCKERHUB_PASSWORD:
-    secure: B5csT/8cBVzPVNt2pCrv6QHpqPVI5pGbJdSQWdv+lYDWy9aqpp3zndCUiNT1jkHw
+    secure: jixSPUTmNBIZWupRZZwyOoRFd7bIh0hdvRn8z1/bRUE=
   matrix:
     - NAME: python_3
       SRC_IMAGE: python:3-windowsservercore-ltsc2016
@@ -19,11 +19,11 @@ environment:
 
 install:
   - docker version
-  - docker login -u="$env:DOCKERHUB_USERNAME" -p="$env:DOCKERHUB_PASSWORD"
 
 build_script:
   - docker pull "$env:SRC_IMAGE"
   - docker run "$env:SRC_IMAGE" "$env:SRC_PYTHON_EXE" --version
+  - docker login -u="$env:DOCKERHUB_USERNAME" -p="$env:DOCKERHUB_PASSWORD"
 
 #deploy_script:
 #  - docker push me/myfavoriteapp
