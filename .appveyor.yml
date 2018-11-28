@@ -21,7 +21,7 @@ install:
 build_script:
   #- docker pull "%SRC_IMAGE%"
   #- ps: docker login -u="$env:DOCKERHUB_USERNAME" -p="$env:DOCKERHUB_PASSWORD"
-  - docker build --compress --no-cache --squash -t junk junk
+  - docker build --compress --no-cache -t junk junk
   - docker run junk python --version
   - docker images
 #deploy_script:
