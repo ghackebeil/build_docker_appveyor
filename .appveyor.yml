@@ -24,8 +24,8 @@ build_script:
   #- docker build --compress --no-cache -t junk junk
   #- docker run junk python --version
   #- docker images
-  - docker pull 3.7-windowsservercore-ltsc2016
-  - docker pull 3.6-windowsservercore-ltsc2016
-  - docker pull 2.7-windowsservercore-ltsc2016
+  - docker pull 3-windowsservercore-ltsc2016
+  #- docker pull 3-windowsservercore-ltsc2016
+  - docker pull 2-windowsservercore-ltsc2016
 #deploy_script:
 #  - docker push me/myfavoriteapp
